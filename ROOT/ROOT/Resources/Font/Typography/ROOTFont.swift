@@ -4,6 +4,7 @@ public struct ROOTFont: ViewModifier {
     public var style: ROOTFontStyle
 
     public func body(content: Content) -> some View {
+        print("Applying font: \(style)")
         switch style {
         case let .heading(font):
             return content

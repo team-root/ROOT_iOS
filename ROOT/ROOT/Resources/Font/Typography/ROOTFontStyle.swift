@@ -15,7 +15,7 @@ public enum ROOTFontStyle: Hashable {
     case heading(ROOTFontStyle.Heading)
     case body(ROOTFontStyle.Body)
     case caption(ROOTFontStyle.Caption)
-
+    
     public enum Heading: CGFloat, ROOTFontable {
         case heading1 = 40
         case heading2 = 36
@@ -24,15 +24,31 @@ public enum ROOTFontStyle: Hashable {
         case heading5 = 24
         case heading6 = 20
     }
-
+    
     public enum Body: CGFloat, ROOTFontable {
-        case body1, body2 = 16
-        case body3, body4 = 14
+        case body1, body2, body3, body4
+        
+        public var size: CGFloat {
+            switch self {
+            case .body1: return 16
+            case .body2: return 16
+            case .body3: return 14
+            case .body4: return 14
+            }
+        }
     }
-
+    
     public enum Caption: CGFloat, ROOTFontable {
-        case caption1, caption2 = 12
-        case caption3, caption4 = 10
+        case caption1, caption2, caption3, caption4
+        
+        public var size: CGFloat {
+            switch self {
+            case .caption1: return 12
+            case .caption2: return 12
+            case .caption3: return 10
+            case .caption4: return 10
+            }
+        }
     }
 }
 
