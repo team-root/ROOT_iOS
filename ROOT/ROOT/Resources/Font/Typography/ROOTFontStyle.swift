@@ -1,20 +1,80 @@
-import Foundation
+import SwiftUI
 
-public enum ROOTFontStyle {
-    case heading1
-    case heading2
-    case heading3
-    case heading4
-    case heading5
-    case heading6
+protocol ROOTFontable {
+    var size: CGFloat { get }
+    var weight: ROOTFontWeight { get }
+}
 
-    case body1
-    case body2
-    case body3
-    case body4
+public enum ROOTFontWeight: String {
+    case bold = "Bold"
+    case medium = "Medium"
+    case regular = "Regular"
+}
 
-    case caption1
-    case caption2
-    case caption3
-    case caption4
+public enum ROOTFontStyle: Hashable {
+    case heading(ROOTFontStyle.Heading)
+    case body(ROOTFontStyle.Body)
+    case caption(ROOTFontStyle.Caption)
+
+    public enum Heading: CGFloat, ROOTFontable {
+        case heading1 = 40
+        case heading2 = 36
+        case heading3 = 32
+        case heading4 = 28
+        case heading5 = 24
+        case heading6 = 20
+    }
+
+    public enum Body: CGFloat, ROOTFontable {
+        case body1, body2 = 16
+        case body3, body4 = 14
+    }
+
+    public enum Caption: CGFloat, ROOTFontable {
+        case caption1, caption2 = 12
+        case caption3, caption4 = 10
+    }
+}
+
+// MARK: - FontableSize
+extension ROOTFontable where Self: RawRepresentable, Self.RawValue == CGFloat {
+    var size: CGFloat {
+        self.rawValue
+    }
+}
+
+// MARK: - Headline
+public extension ROOTFontStyle.Heading {
+    var weight: ROOTFontWeight {
+        switch self {
+        case .heading1, .heading2, .heading3:
+            return .bold
+        case .heading4, .heading5, .heading6:
+            return .medium
+        }
+    }
+}
+
+// MARK: - Text
+public extension ROOTFontStyle.Body {
+    var weight: ROOTFontWeight {
+        switch self {
+        case .body1, .body3:
+            return .medium
+        case .body2, .body4:
+            return .regular
+        }
+    }
+}
+
+// MARK: - Button
+public extension ROOTFontStyle.Caption {
+    var weight: ROOTFontWeight {
+        switch self {
+        case .caption1, .caption3:
+            return .medium
+        case .caption2, .caption4:
+            return .regular
+        }
+    }
 }

@@ -1,37 +1,34 @@
-
 import SwiftUI
 
-extension Text {
-    func ROOTStyle(_ style: ROOTFontStyle) -> Text {
-        let fontData = style.fontData()
-        return self
-            .font(.custom(fontData.fontName, size: fontData.size))
+public struct ROOTFont: ViewModifier {
+    public var style: ROOTFontStyle
+
+    public func body(content: Content) -> some View {
+        switch style {
+        case let .heading(font):
+            return content
+                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+
+        case let .body(font):
+            return content
+                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+
+        case let .caption(font):
+            return content
+                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+        }
     }
 }
 
-extension ROOTFontStyle {
-    func fontData() -> (fontName: String, size: CGFloat) {
-        switch self {
-        case .heading1:
-            return ("Pretendard-Bold", 40)
-        case .heading2:
-            return ("Pretendard-Bold", 36)
-        case .heading3:
-            return ("Pretendard-Bold", 32)
-        case .heading4:
-            return ("Pretendard-Medium", 28)
-        case .heading5:
-            return ("Pretendard-Medium", 24)
-        case .heading6:
-            return ("Pretendard-Medium", 20)
-        case .body1, .body2:
-            return ("Pretendard-Regular", 16)
-        case .body3, .body4:
-            return ("Pretendard-Regular", 14)
-        case .caption1, .caption2:
-            return ("Pretendard-Regular", 12)
-        case .caption3, .caption4:
-            return ("Pretendard-Regular", 10)
-        }
+public extension View {
+    func rootFont(_ style: ROOTFontStyle) -> some View {
+        self
+            .modifier(ROOTFont(style: style))
+    }
+
+    func rootFont(_ style: ROOTFontStyle, color: Color) -> some View {
+        self
+            .rootFont(style)
+            .foregroundColor(color)
     }
 }
