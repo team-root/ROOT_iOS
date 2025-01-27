@@ -7,7 +7,7 @@ protocol ROOTFontable {
 
 public enum ROOTFontWeight: String {
     case bold = "Bold"
-    case medium = "Medium"
+    case semibold = "SemiBold"
     case regular = "Regular"
 }
 
@@ -50,7 +50,7 @@ public extension ROOTFontStyle.Heading {
         case .heading1, .heading2, .heading3:
             return .bold
         case .heading4, .heading5, .heading6:
-            return .medium
+            return .semibold
         }
     }
 }
@@ -60,7 +60,7 @@ public extension ROOTFontStyle.Body {
     var weight: ROOTFontWeight {
         switch self {
         case .body1, .body3:
-            return .medium
+            return .semibold
         case .body2, .body4:
             return .regular
         }
@@ -72,7 +72,7 @@ public extension ROOTFontStyle.Caption {
     var weight: ROOTFontWeight {
         switch self {
         case .caption1, .caption3:
-            return .medium
+            return .semibold
         case .caption2, .caption4:
             return .regular
         }

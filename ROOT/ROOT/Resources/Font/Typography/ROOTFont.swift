@@ -7,15 +7,15 @@ public struct ROOTFont: ViewModifier {
         switch style {
         case let .heading(font):
             return content
-                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+                .font(.custom("Pretendard-\(font.weight.rawValue)", size: font.size))
 
         case let .body(font):
             return content
-                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+                .font(.custom("Pretendard-\(font.weight.rawValue)", size: font.size))
 
         case let .caption(font):
             return content
-                .font(.custom("NotoSansKR-\(font.weight.rawValue)", size: font.size))
+                .font(.custom("Pretendard-\(font.weight.rawValue)", size: font.size))
         }
     }
 }

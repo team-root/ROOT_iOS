@@ -19,7 +19,7 @@ struct ROOTAuthTextField: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: .leading, spacing: 3) {
             Text(title)
                 .rootFont(.caption(.caption3))
                 .foregroundStyle(.gray100)
@@ -34,13 +34,13 @@ struct ROOTAuthTextField: View {
                     .textFieldStyle(PlainTextFieldStyle())
                     .padding(16)
                     .rootFont(.body(.body4))
-                    .foregroundStyle(.gray100)
+                    .foregroundStyle(.gray300)
                     .background(
                         RoundedRectangle(cornerRadius: 12)
                             .fill(Color.gray550)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
-                                    .stroke(Color.gray300, lineWidth: 1)
+                                    .stroke(Color.gray500, lineWidth: 1)
                             )
                     )
             }
