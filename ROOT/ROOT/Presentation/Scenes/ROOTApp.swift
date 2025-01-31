@@ -11,7 +11,10 @@ import SwiftUI
 struct ROOTApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
+}
+#Preview {
+    LoginView()
 }
