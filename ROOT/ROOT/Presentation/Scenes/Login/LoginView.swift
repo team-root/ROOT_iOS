@@ -23,16 +23,18 @@ struct LoginView: View {
 
                     VStack(alignment: .leading, spacing: 20) {
                         ROOTAuthTextField(
-                            title: .constant("아이디"),
+                            title: "아이디",
                             text: $inputIdText,
                             placeholder: "아이디를 입력해주세요.",
-                            error: .constant("존재하지 않는 아이디입니다."))
+                            error: "존재하지 않는 아이디입니다.")
 
                         ROOTAuthTextField(
-                            title: .constant("비밀번호"),
+                            title: "비밀번호",
                             text: $inputPasswordText,
                             placeholder: "비밀번호를 입력해주세요.",
-                            error: .constant("비밀번호가 일치하지 않습니다."))
+                            error: "비밀번호가 일치하지 않습니다.",
+                            isSecureField: true
+                        )
                         Spacer()
                     }
 
