@@ -40,6 +40,13 @@ struct TabBarView: View {
                 .tag(4)
         }
         .accentColor(.main100)
+        .overlay(
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(.gray400)
+                .offset(y: -49)
+            , alignment: .bottom
+        )
     }
 }
 
