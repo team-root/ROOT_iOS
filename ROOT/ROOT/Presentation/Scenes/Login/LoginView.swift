@@ -3,6 +3,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var inputIdText: String = ""
     @State private var inputPasswordText: String = ""
+    @State private var clickLoginButton: Bool = false
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -37,11 +39,14 @@ struct LoginView: View {
                         )
                         Spacer()
                     }
-
                     ROOTButton(title: "로그인", isEnabled: true) {
-                        print("로그인 버튼 클릭")
+                        clickLoginButton = true
                     }
                     .padding(.bottom, 20)
+
+                    .navigationDestination(isPresented: $clickLoginButton) {
+                        TabBarView()
+                    }
                 }
             }
         }
