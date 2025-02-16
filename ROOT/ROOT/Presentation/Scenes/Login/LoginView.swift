@@ -44,9 +44,10 @@ struct LoginView: View {
                     }
                     .padding(.bottom, 20)
 
-                    .navigationDestination(isPresented: $clickLoginButton) {
-                        TabBarView()
-                    }
+                    NavigationLink(
+                        destination: TabBarView(),
+                        isActive: $clickLoginButton,
+                        label: {EmptyView()})
                 }
             }
         }

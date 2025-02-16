@@ -47,6 +47,7 @@ struct TabBarView: View {
                 .offset(y: -49)
             , alignment: .bottom
         )
+        .navigationBarHidden(true)
     }
 }
 

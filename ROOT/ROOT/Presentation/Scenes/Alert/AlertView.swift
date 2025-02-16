@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct AlertView: View {
+    @Binding var returnToHome: Bool
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -14,16 +16,15 @@ struct AlertView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        // 버튼 동작 추가
+                        returnToHome = false
                     }) {
                         Image("back")
                     }
                 }
             }
         }
+        .navigationBarHidden(true)
     }
 }
 
-#Preview {
-    AlertView()
-}
+

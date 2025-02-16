@@ -1,9 +1,16 @@
 import SwiftUI
 
 struct StudentHomeView: View {
+    @State private var clickAlertButton: Bool = false
+
     var body: some View {
         NavigationView {
             ZStack {
+                NavigationLink(isActive: $clickAlertButton) {
+                    AlertView(returnToHome: $clickAlertButton)
+                } label: {
+                    EmptyView()
+                }
                 Color(.gray600)
                     .ignoresSafeArea()
                 VStack(alignment: .leading) {
@@ -46,7 +53,8 @@ struct StudentHomeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        clickAlertButton = true
+                        print("alert button")
                     }) {
                         Image("bell")
                     }
