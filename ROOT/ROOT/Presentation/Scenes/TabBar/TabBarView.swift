@@ -6,6 +6,7 @@ struct TabBarView: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = .gray600
+        appearance.shadowColor = .gray400
 
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
@@ -40,13 +41,6 @@ struct TabBarView: View {
                 .tag(4)
         }
         .accentColor(.main100)
-        .overlay(
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(.gray400)
-                .offset(y: -49)
-            , alignment: .bottom
-        )
         .navigationBarHidden(true)
     }
 }
