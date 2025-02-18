@@ -11,6 +11,35 @@ struct VolunteerDetailView: View {
                         .rootFont(.heading(.heading5), color: .gray100)
                     Text("환경을 정화하는 활동입니다.")
                         .rootFont(.body(.body4), color: .gray100)
+                        .padding(.bottom, 32)
+                    
+                    HStack(spacing: 13) {
+                        VStack(spacing: 15) {
+                            VolunteerInfoView(
+                                title: "신청 기간",
+                                content: "2024.12.19 ~\n2024.12.22",
+                                icon: "calender2"
+                            )
+                            VolunteerInfoView(
+                                title: "봉사 시간",
+                                content: "8시간",
+                                icon: "time"
+                            )
+                        }
+                        VStack(spacing: 13) {
+                            VolunteerInfoView(
+                                title: "활동 기간",
+                                content: "2024.12.19 ~\n2024.12.22",
+                                icon: "calender2"
+                            )
+                            VolunteerInfoView(
+                                title: "봉사 인원",
+                                content: "20명",
+                                icon: "people"
+                            )
+                        }
+                    }
+                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
