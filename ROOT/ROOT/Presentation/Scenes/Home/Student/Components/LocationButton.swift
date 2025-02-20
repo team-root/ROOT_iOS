@@ -14,7 +14,6 @@ struct LocationButton: View {
             }
             .padding(.vertical, 13)
             .padding(.trailing, 11)
-            .frame(width: 329, height: 46)
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
