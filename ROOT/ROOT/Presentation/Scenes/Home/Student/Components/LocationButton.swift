@@ -7,10 +7,14 @@ struct LocationButton: View {
         Button(action: {}) {
             Image("location")
                 .padding(.horizontal, 11)
-            Text(text)
-                .rootFont(.body(.body1), color: .gray100)
-                .padding(.vertical, 13)
-                .padding(.trailing, 11)
+            HStack {
+                Text(text)
+                    .rootFont(.body(.body3), color: .gray100)
+                Spacer()
+            }
+            .padding(.vertical, 13)
+            .padding(.trailing, 11)
+            .frame(width: 329, height: 46)
         }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
