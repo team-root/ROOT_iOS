@@ -39,10 +39,24 @@ struct VolunteerDetailView: View {
                             )
                         }
                     }
+                    .padding(.bottom, 20)
                     
+                    Text("역할")
+                        .rootFont(.caption(.caption3), color: .gray300)
+                        .padding(.bottom, 8)
+                    RoleListView(roles: ["역할1", "역할역할역할역할2", "역할역할3",
+                                          "역할역할역할역할역할역할4", "역할역할5", "역할6"])
+                    .padding(.bottom, 20)
+                    
+                    Text("활동 장소")
+                        .rootFont(.caption(.caption3), color: .gray300)
+                        .padding(.bottom, 8)
+                    LocationButton(text: "대덕소프트웨어마이스터고")
                     Spacer()
+                    ROOTButton(title: "신청 하기", isEnabled: true, action: {})
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.bottom, 20)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
             }
