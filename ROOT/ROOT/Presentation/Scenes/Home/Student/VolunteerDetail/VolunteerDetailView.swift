@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct VolunteerDetailView: View {
+    @Binding var returnToHome: Bool
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -45,7 +47,7 @@ struct VolunteerDetailView: View {
                         .rootFont(.caption(.caption3), color: .gray300)
                         .padding(.bottom, 8)
                     RoleListView(roles: ["역할1", "역할역할역할역할2", "역할역할3",
-                                          "역할역할역할역할역할역할4", "역할역할5", "역할6"])
+                                         "역할역할역할역할역할역할4", "역할역할5", "역할6"])
                     .padding(.bottom, 20)
                     
                     Text("활동 장소")
@@ -59,6 +61,7 @@ struct VolunteerDetailView: View {
                 }
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
+//                successpo
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -67,6 +70,7 @@ struct VolunteerDetailView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        returnToHome = false
                     }) {
                         Image("back")
                     }
@@ -74,9 +78,10 @@ struct VolunteerDetailView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
-    VolunteerDetailView()
+    VolunteerDetailView(returnToHome: .constant(false))
 }
