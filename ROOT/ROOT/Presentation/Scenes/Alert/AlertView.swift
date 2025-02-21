@@ -54,9 +54,8 @@ struct AlertView: View {
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
         .onDisappear {
-                    // AlertView가 사라질 때 다시 TabBar를 보이게 함
-                    UITabBar.appearance().isHidden = false
-                }
+            UITabBar.appearance().isHidden = false
+        }
     }
 }
 

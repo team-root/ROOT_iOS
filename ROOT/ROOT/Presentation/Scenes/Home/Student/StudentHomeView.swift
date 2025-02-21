@@ -66,7 +66,7 @@ struct StudentHomeView: View {
                     }
                 }
             }
-            .toolbar(clickAlertButton ? .hidden : .visible, for: .tabBar)
+            .toolbar(clickAlertButton || clickVolunteerButton ? .hidden : .visible, for: .tabBar)
         }
     }
 }
