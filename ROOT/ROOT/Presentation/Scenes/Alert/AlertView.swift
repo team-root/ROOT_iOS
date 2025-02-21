@@ -53,6 +53,9 @@ struct AlertView: View {
         }
         .navigationBarHidden(true)
         .toolbar(.hidden, for: .tabBar)
+        .onDisappear {
+            UITabBar.appearance().isHidden = false
+        }
     }
 }
 

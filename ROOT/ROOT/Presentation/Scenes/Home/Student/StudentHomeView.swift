@@ -2,12 +2,18 @@ import SwiftUI
 
 struct StudentHomeView: View {
     @State private var clickAlertButton: Bool = false
+    @State private var clickVolunteerButton: Bool = false
 
     var body: some View {
         NavigationView {
             ZStack {
                 NavigationLink(isActive: $clickAlertButton) {
                     AlertView(returnToHome: $clickAlertButton)
+                } label: {
+                    EmptyView()
+                }
+                NavigationLink(isActive: $clickVolunteerButton) {
+                    VolunteerDetailView(returnToHome: $clickVolunteerButton)
                 } label: {
                     EmptyView()
                 }
@@ -24,7 +30,7 @@ struct StudentHomeView: View {
                         LazyVStack(spacing: 10) {
                             ForEach(0..<10, id: \.self) { _ in
                                 Button(action: {
-                                    print("봉사 활동 선택됨")
+                                    clickVolunteerButton = true
                                 }) {
                                     HStack {
                                         Text("봉사 활동 제목")
@@ -60,6 +66,7 @@ struct StudentHomeView: View {
                     }
                 }
             }
+            .toolbar(clickAlertButton || clickVolunteerButton ? .hidden : .visible, for: .tabBar)
         }
     }
 }
