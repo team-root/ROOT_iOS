@@ -33,7 +33,7 @@ struct TabBarView: View {
                         .renderingMode(.template)
                 }
                 .tag(3)
-            ProfileView()
+            StudentProfileView()
                 .tabItem {
                     Image(.person)
                         .renderingMode(.template)
