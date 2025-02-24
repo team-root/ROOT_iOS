@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct VolunteerHistoryView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -14,7 +16,7 @@ struct VolunteerHistoryView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image("back")
                     }
@@ -23,6 +25,7 @@ struct VolunteerHistoryView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.gray600, for: .navigationBar)
         }
+        .navigationBarHidden(true)
     }
 }
 

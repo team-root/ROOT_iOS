@@ -2,6 +2,7 @@ import SwiftUI
 
 struct StudentMyPageView: View {
     @State private var clickAlertButton: Bool = false
+    @State private var clickHistoryButton: Bool = false
     
     var body: some View {
         NavigationView {
@@ -10,6 +11,11 @@ struct StudentMyPageView: View {
                     .ignoresSafeArea()
                 NavigationLink(isActive: $clickAlertButton) {
                     AlertView(returnToHome: $clickAlertButton)
+                } label: {
+                    EmptyView()
+                }
+                NavigationLink(isActive: $clickHistoryButton) {
+                    VolunteerHistoryView()
                 } label: {
                     EmptyView()
                 }
@@ -27,7 +33,7 @@ struct StudentMyPageView: View {
                     MyPageButton(
                         text: "봉사 활동 내역 조회",
                         textColor: .gray100,
-                        action: {}
+                        action: { clickHistoryButton = true }
                     )
                     MyPageButton(
                         text: "로그아웃",
