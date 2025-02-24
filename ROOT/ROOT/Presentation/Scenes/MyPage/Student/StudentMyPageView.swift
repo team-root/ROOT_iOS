@@ -28,7 +28,7 @@ struct StudentMyPageView: View {
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 10)
-                    TotalVolunteerTimeView()
+                    TotalVolunteerTimeView(time: 100)
                         .padding(.vertical, 25)
                     MyPageButton(
                         text: "봉사 활동 내역 조회",
