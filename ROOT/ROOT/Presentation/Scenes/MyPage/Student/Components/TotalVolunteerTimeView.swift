@@ -13,7 +13,6 @@ struct TotalVolunteerTimeView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.gray550)
         .cornerRadius(20)
-        .padding(.horizontal, 20)
     }
 }
 

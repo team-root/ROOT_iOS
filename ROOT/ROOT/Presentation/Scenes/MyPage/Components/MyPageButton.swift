@@ -9,7 +9,7 @@ struct MyPageButton: View {
         Button(action: action) {
             Text(text)
                 .rootFont(.body(.body4), color: textColor)
-                .padding(.vertical, 18)
+                .padding(.vertical, 19)
                 .padding(.leading, 20)
             Spacer()
             Image("right")
