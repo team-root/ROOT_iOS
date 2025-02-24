@@ -2,6 +2,8 @@ import SwiftUI
 
 struct StudentMyPageView: View {
     @State private var clickAlertButton: Bool = false
+    @State private var clickHistoryButton: Bool = false
+    @State private var showingLogoutAlert = false
     
     var body: some View {
         NavigationView {
@@ -9,7 +11,12 @@ struct StudentMyPageView: View {
                 Color.gray600
                     .ignoresSafeArea()
                 NavigationLink(isActive: $clickAlertButton) {
-                    AlertView(returnToHome: $clickAlertButton)
+                    AlertView()
+                } label: {
+                    EmptyView()
+                }
+                NavigationLink(isActive: $clickHistoryButton) {
+                    VolunteerHistoryView()
                 } label: {
                     EmptyView()
                 }
@@ -22,22 +29,27 @@ struct StudentMyPageView: View {
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 10)
-                    TotalVolunteerTimeView()
+                    TotalVolunteerTimeView(time: 100)
                         .padding(.vertical, 25)
                     MyPageButton(
                         text: "봉사 활동 내역 조회",
                         textColor: .gray100,
-                        action: {}
+                        action: { clickHistoryButton = true }
                     )
                     MyPageButton(
                         text: "로그아웃",
                         textColor: .error,
-                        action: {}
+                        action: { showingLogoutAlert = true }
                     )
                     .padding(.top, 10)
                     Spacer()
                 }
                 .padding(.horizontal, 20)
+                if showingLogoutAlert {
+                    LogoutAlertView(isPresent: $showingLogoutAlert)
+                        .transition(.opacity) // 부드러운 애니메이션 효과 추가 가능
+                        .zIndex(1) // 최상위로 표시
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -54,6 +66,7 @@ struct StudentMyPageView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(clickAlertButton || clickHistoryButton ? .hidden : .visible, for: .tabBar)
         }
     }
 }

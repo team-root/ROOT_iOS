@@ -8,12 +8,12 @@ struct StudentHomeView: View {
         NavigationView {
             ZStack {
                 NavigationLink(isActive: $clickAlertButton) {
-                    AlertView(returnToHome: $clickAlertButton)
+                    AlertView()
                 } label: {
                     EmptyView()
                 }
                 NavigationLink(isActive: $clickVolunteerButton) {
-                    VolunteerDetailView(returnToHome: $clickVolunteerButton)
+                    VolunteerDetailView()
                 } label: {
                     EmptyView()
                 }
