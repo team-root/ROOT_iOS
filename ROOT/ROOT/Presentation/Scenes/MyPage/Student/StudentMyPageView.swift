@@ -13,7 +13,7 @@ struct StudentMyPageView: View {
                 } label: {
                     EmptyView()
                 }
-                VStack(alignment: .leading, spacing: 25) {
+                VStack(alignment: .leading, spacing: 0) {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("1316 하원")
                             .rootFont(.heading(.heading4), color: .gray100)
@@ -21,10 +21,23 @@ struct StudentMyPageView: View {
                             .rootFont(.body(.body1), color: .gray300)
                     }
                     .padding(.top, 20)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, 10)
                     TotalVolunteerTimeView()
+                        .padding(.vertical, 25)
+                    MyPageButton(
+                        text: "봉사 활동 내역 조회",
+                        textColor: .gray100,
+                        action: {}
+                    )
+                    MyPageButton(
+                        text: "로그아웃",
+                        textColor: .error,
+                        action: {}
+                    )
+                    .padding(.top, 10)
                     Spacer()
                 }
+                .padding(.horizontal, 20)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {

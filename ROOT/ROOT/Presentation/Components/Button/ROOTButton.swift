@@ -10,12 +10,16 @@ struct ROOTButton: View {
             Text(title)
                 .rootFont(.body(.body1))
                 .foregroundColor(isEnabled ? Color.white : Color.gray400)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(width: 343, height: 57)
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.vertical, 19)
         .background(isEnabled ? .main200 : .gray400)
         .cornerRadius(10)
         .disabled(!isEnabled)
     }
+}
+
+#Preview {
+    ROOTButton(title: "Dsdsds", isEnabled: true, action: {})
 }
 
