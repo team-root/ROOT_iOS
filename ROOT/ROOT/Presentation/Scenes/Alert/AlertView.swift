@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AlertView: View {
-    @Binding var returnToHome: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -42,7 +42,7 @@ struct AlertView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        returnToHome = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image("back")
                     }
@@ -60,5 +60,5 @@ struct AlertView: View {
 }
 
 #Preview {
-    AlertView(returnToHome: .constant(false))
+    AlertView()
 }

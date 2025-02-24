@@ -10,7 +10,7 @@ struct StudentMyPageView: View {
                 Color.gray600
                     .ignoresSafeArea()
                 NavigationLink(isActive: $clickAlertButton) {
-                    AlertView(returnToHome: $clickAlertButton)
+                    AlertView()
                 } label: {
                     EmptyView()
                 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct VolunteerDetailView: View {
-    @Binding var returnToHome: Bool
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationView {
@@ -70,7 +70,7 @@ struct VolunteerDetailView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        returnToHome = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image("back")
                     }
@@ -87,5 +87,5 @@ struct VolunteerDetailView: View {
 }
 
 #Preview {
-    VolunteerDetailView(returnToHome: .constant(false))
+    VolunteerDetailView()
 }
