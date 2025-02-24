@@ -26,6 +26,7 @@ struct VolunteerHistoryView: View {
             .toolbarBackground(Color.gray600, for: .navigationBar)
         }
         .navigationBarHidden(true)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 

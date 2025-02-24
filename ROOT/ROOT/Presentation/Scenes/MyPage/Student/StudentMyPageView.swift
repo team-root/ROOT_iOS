@@ -60,6 +60,7 @@ struct StudentMyPageView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(clickAlertButton || clickHistoryButton ? .hidden : .visible, for: .tabBar)
         }
     }
 }
