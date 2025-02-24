@@ -3,6 +3,7 @@ import SwiftUI
 struct StudentMyPageView: View {
     @State private var clickAlertButton: Bool = false
     @State private var clickHistoryButton: Bool = false
+    @State private var showingLogoutAlert = false
     
     var body: some View {
         NavigationView {
@@ -38,12 +39,17 @@ struct StudentMyPageView: View {
                     MyPageButton(
                         text: "로그아웃",
                         textColor: .error,
-                        action: {}
+                        action: { showingLogoutAlert = true }
                     )
                     .padding(.top, 10)
                     Spacer()
                 }
                 .padding(.horizontal, 20)
+                if showingLogoutAlert {
+                    LogoutAlertView(isPresent: $showingLogoutAlert)
+                        .transition(.opacity) // 부드러운 애니메이션 효과 추가 가능
+                        .zIndex(1) // 최상위로 표시
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
