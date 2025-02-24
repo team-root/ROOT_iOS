@@ -43,6 +43,7 @@ struct LoginView: View {
                         clickLoginButton = true
                     }
                     .padding(.bottom, 20)
+                    .padding(.horizontal, 25)
 
                     NavigationLink(
                         destination: TabBarView(),
