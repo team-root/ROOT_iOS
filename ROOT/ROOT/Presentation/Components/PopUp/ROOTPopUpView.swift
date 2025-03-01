@@ -10,8 +10,11 @@ struct ROOTPopUpView: View {
             Rectangle()
                 .frame(width: 244, height: 197)
                 .foregroundStyle(.gray550)
-                .border(.gray500)
                 .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.gray500, lineWidth: 0.5)
+                )
                 
             VStack(spacing: 0) {
                 Image("check")
@@ -26,6 +29,8 @@ struct ROOTPopUpView: View {
                 }) {
                     Text("확인")
                         .rootFont(.caption(.caption3), color: .gray100)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 93)
                 }
                 .frame(width: 204, height: 35)
                 .background(.main200)
