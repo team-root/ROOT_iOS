@@ -47,8 +47,8 @@ struct StudentMyPageView: View {
                 .padding(.horizontal, 20)
                 if showingLogoutAlert {
                     LogoutAlertView(isPresent: $showingLogoutAlert)
-                        .transition(.opacity) // 부드러운 애니메이션 효과 추가 가능
-                        .zIndex(1) // 최상위로 표시
+                        .transition(.opacity)
+                        .zIndex(1)
                 }
             }
             .toolbar {

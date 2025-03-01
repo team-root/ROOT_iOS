@@ -10,9 +10,9 @@ struct ROOTButton: View {
             Text(title)
                 .rootFont(.body(.body1))
                 .foregroundColor(isEnabled ? Color.white : Color.gray400)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 19)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
-        .padding(.vertical, 19)
         .background(isEnabled ? .main200 : .gray400)
         .cornerRadius(10)
         .disabled(!isEnabled)
