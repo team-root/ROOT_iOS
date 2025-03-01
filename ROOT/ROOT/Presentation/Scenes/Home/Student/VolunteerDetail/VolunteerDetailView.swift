@@ -2,6 +2,7 @@ import SwiftUI
 
 struct VolunteerDetailView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var showingPopUp = false
 
     var body: some View {
         NavigationView {
@@ -55,13 +56,23 @@ struct VolunteerDetailView: View {
                         .padding(.bottom, 8)
                     LocationButton(text: "대덕소프트웨어마이스터고")
                     Spacer()
-                    ROOTButton(title: "신청 하기", isEnabled: true, action: {})
+                    ROOTButton(title: "신청 하기", isEnabled: true, action: {
+                        showingPopUp = true
+                    })
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.bottom, 20)
                 }
                 .padding(.horizontal, 32)
                 .padding(.top, 25)
-//                successpo
+                if showingPopUp {
+                    ROOTPopUpView(
+                        isPresent: $showingPopUp,
+                        title: "신청 완료!",
+                        content: "봉사 활동 신청이 완료되었습니다."
+                    )
+                        .transition(.opacity)
+                        .zIndex(1)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {

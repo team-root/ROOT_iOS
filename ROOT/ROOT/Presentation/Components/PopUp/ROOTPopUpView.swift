@@ -21,7 +21,9 @@ struct ROOTPopUpView: View {
                 Text(content)
                     .rootFont(.caption(.caption3), color: .gray300)
                     .padding(.bottom, 13)
-                Button(action: {}) {
+                Button(action: {
+                    isPresent = false
+                }) {
                     Text("확인")
                         .rootFont(.caption(.caption3), color: .gray100)
                 }
