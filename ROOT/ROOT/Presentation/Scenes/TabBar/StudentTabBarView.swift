@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TabBarView: View {
+struct StudentTabBarView: View {
     @State private var selection = 2
 
     init() {
@@ -46,5 +46,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView()
+    StudentTabBarView()
 }
