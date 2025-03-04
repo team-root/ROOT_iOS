@@ -4,6 +4,7 @@ struct StudentMyPageView: View {
     @State private var clickAlertButton: Bool = false
     @State private var clickHistoryButton: Bool = false
     @State private var showingLogoutAlert = false
+    let roles = ["교실 분리수거", "교실", "등등"]
     
     var body: some View {
         NavigationView {
@@ -24,8 +25,20 @@ struct StudentMyPageView: View {
                     VStack(alignment: .leading, spacing: 5) {
                         Text("1316 하원")
                             .rootFont(.heading(.heading4), color: .gray100)
-                        Text("교실 분리수거")
-                            .rootFont(.body(.body1), color: .gray300)
+                        List {
+                            ForEach(roles, id: \.self) { role in
+                                Text(role)
+                                    .rootFont(.body(.body1), color: .gray300)
+                                    .padding(.vertical, 2)
+                                    .listRowInsets(EdgeInsets())
+                                    .listRowSeparator(.hidden)
+                                    .listRowSpacing(-10)
+                                    .listRowBackground(Color.gray600)
+                            }
+                        }
+                        .listStyle(.plain)
+                        .environment(\.defaultMinListRowHeight, 0)
+                        .frame(height: CGFloat(roles.count) * CGFloat(24))
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 10)
