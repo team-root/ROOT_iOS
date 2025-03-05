@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AdminHomeView: View {
     @State private var clickAlertButton: Bool = false
+    @State private var clickQrButton: Bool = false
     
     var body: some View {
         NavigationView {
@@ -40,26 +41,40 @@ struct AdminHomeView: View {
                                 .fill(Color.gray550)
                                 .aspectRatio(1, contentMode: .fit)
                                 .overlay(
-                                    Rectangle()
-                                        .fill(Color.main200)
-                                        .frame(width: 0.34, height: size - 50)
-                                        .position(x: size / 2, y: size / 2)
-                                )
-                                .overlay(
-                                    Rectangle()
-                                        .fill(Color.main200)
-                                        .frame(width: size - 50, height: 0.34)
-                                        .position(x: size / 2, y: size / 2)
-                                )
-                                .overlay(
-                                    Button(action: {}) {
-                                        Text("QR 생성하기")
-                                            .rootFont(.body(.body3), color: .gray700)
-                                            .padding(.vertical, 13)
-                                            .padding(.horizontal, 27)
+                                    Group {
+                                        if !clickQrButton {
+                                            Rectangle()
+                                                .fill(Color.main200)
+                                                .frame(width: 0.5, height: size - 50)
+                                                .position(x: size / 2, y: size / 2)
+                                        }
                                     }
-                                    .background(Color.main200)
-                                    .cornerRadius(15),
+                                )
+                                .overlay(
+                                    Group {
+                                        if !clickQrButton {
+                                            Rectangle()
+                                                .fill(Color.main200)
+                                                .frame(width: size - 50, height: 0.5)
+                                                .position(x: size / 2, y: size / 2)
+                                        }
+                                    }
+                                )
+                                .overlay(
+                                    Group {
+                                        if !clickQrButton {
+                                            Button(action: {
+                                                clickQrButton = true
+                                            }) {
+                                                Text("QR 생성하기")
+                                                    .rootFont(.body(.body3), color: .gray700)
+                                                    .padding(.vertical, 13)
+                                                    .padding(.horizontal, 27)
+                                            }
+                                            .background(Color.main200)
+                                            .cornerRadius(15)
+                                        }
+                                    },
                                     alignment: .center
                                 )
                         }
