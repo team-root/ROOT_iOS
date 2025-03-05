@@ -15,7 +15,7 @@ struct StudentTabBarView: View {
     var body: some View {
         
         TabView(selection: $selection) {
-            QRView()
+            QRScannerView()
                 .tabItem {
                     Image(.qr)
                         .renderingMode(.template)

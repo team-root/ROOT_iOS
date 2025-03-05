@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct QRView: View {
+struct QRScannerView: View {
     var body: some View {
         VStack {
             Text("QR Screen")
