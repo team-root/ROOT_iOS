@@ -11,10 +11,10 @@ import SwiftUI
 struct ROOTApp: App {
     var body: some Scene {
         WindowGroup {
-            AdminTabBarView()
+            StudentTabBarView()
         }
     }
 }
 #Preview {
-    AdminTabBarView()
+    StudentTabBarView()
 }
