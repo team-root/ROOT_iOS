@@ -149,7 +149,7 @@ struct ScheduleView: View {
     }
     
     private var eventListView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: .zero) {
             if let selectedDate = selectedDate {
                 let eventsForSelectedDate = eventsForDate(selectedDate)
                 
@@ -159,20 +159,23 @@ struct ScheduleView: View {
                     .padding(.leading, 15)
                 
                 if !eventsForSelectedDate.isEmpty {
-                    ForEach(eventsForSelectedDate, id: \.self) { event in
-                        HStack(alignment: .center, spacing: .zero) {
-                            Circle()
-                                .fill(Color.main100)
-                                .frame(width: 5, height: 5)
-                                .padding(.leading, 15)
-                            
-                            Text(event.title)
-                                .rootFont(.caption(.caption1), color: .gray100)
-                                .padding(.leading, 11)
+                    VStack(alignment: .leading, spacing: .zero) {
+                        ForEach(eventsForSelectedDate, id: \.self) { event in
+                            HStack(alignment: .center, spacing: .zero) {
+                                Circle()
+                                    .fill(Color.main100)
+                                    .frame(width: 5, height: 5)
+                                    .padding(.leading, 15)
+                                
+                                Text(event.title)
+                                    .rootFont(.caption(.caption1), color: .gray100)
+                                    .padding(.leading, 11)
+                            }
                         }
-                        .padding(.top, 14)
+                        .padding(.bottom, 20)
                     }
-                    .padding(.bottom, 20)
+                    .padding(.top, 14)
+                    
                 } else {
                     Text("일정이 없습니다.")
                         .rootFont(.caption(.caption1), color: .gray300)
