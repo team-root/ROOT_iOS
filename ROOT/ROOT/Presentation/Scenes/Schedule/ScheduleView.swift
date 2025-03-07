@@ -1,6 +1,5 @@
 import SwiftUI
 
-// 이벤트 모델 추가
 struct Event: Identifiable, Hashable {
     let id = UUID()
     let title: String
