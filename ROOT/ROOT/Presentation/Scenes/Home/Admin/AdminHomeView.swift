@@ -25,7 +25,6 @@ struct AdminHomeView: View {
                         .padding(.bottom, 26)
                     
                     descriptionButton()
-                    
                     qrCodeSection()
                     
                     Spacer()
